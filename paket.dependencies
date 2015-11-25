@@ -1,4 +1,4 @@
 source https://nuget.org/api/v2
 
 nuget Autofac
-nuget ServiceStack < 4
+nuget ServiceStack >= 4

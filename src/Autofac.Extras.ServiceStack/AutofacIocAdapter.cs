@@ -1,4 +1,4 @@
-﻿using ServiceStack.Common;
+﻿using ServiceStack;
 using ServiceStack.Configuration;
 
 namespace Autofac.Extras.ServiceStack
@@ -14,9 +14,9 @@ namespace Autofac.Extras.ServiceStack
 
         public T Resolve<T>()
         {
-            return !HostContext.Instance.Items.Contains("AutofacScope")
+            return !HostContext.RequestContext.Items.Contains("AutofacScope")
                 ? Container.Resolve<T>()
-                : ((ILifetimeScope) HostContext.Instance.Items["AutofacScope"]).Resolve<T>();
+                : ((ILifetimeScope) HostContext.RequestContext.Items["AutofacScope"]).Resolve<T>();
         }
 
         public T TryResolve<T>()
