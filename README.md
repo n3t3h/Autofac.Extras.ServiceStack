@@ -7,5 +7,5 @@ Usage:
 var container = builder.Build();
 
 var appHost = new MyAppHost();
-appHost.UsrAutofac(container);
+appHost.UseAutofac(container);
 ```
