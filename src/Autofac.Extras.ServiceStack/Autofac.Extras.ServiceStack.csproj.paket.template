@@ -5,3 +5,5 @@ description
 tags
 	autofac servicestack ioc di
 owners alexey_zimarev
+projectUrl https://github.com/alexeyzimarev/Autofac.Extras.ServiceStack
+licenseUrl http://opensource.org/licenses/mit-license.php
