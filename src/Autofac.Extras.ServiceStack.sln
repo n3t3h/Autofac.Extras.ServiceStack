@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autofac.Extras.ServiceStack
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{48F64AAE-BD8B-4771-A084-DF86BE0982F8}"
 	ProjectSection(SolutionItems) = preProject
-		paket.dependencies = paket.dependencies
+		..\paket.dependencies = ..\paket.dependencies
 	EndProjectSection
 EndProject
 Global
