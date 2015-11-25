@@ -1,0 +1,7 @@
+type project
+authors Alexey Zimarev
+description
+	Autofac container adapter for ServiceStack with per-request scope
+tags
+	autofac servicestack ioc di
+owners alexey_zimarev
