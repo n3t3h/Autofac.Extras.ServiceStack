@@ -21,8 +21,12 @@ namespace Autofac.Extras.ServiceStack
 
         public T TryResolve<T>()
         {
+            var context = HostContext.RequestContext.Items.Contains("AutofacScope")
+                ? (ILifetimeScope) HostContext.RequestContext.Items["AutofacScope"]
+                : Container;
+
             T result;
-            return Container.TryResolve(out result) ? result : default(T);
+            return context.TryResolve(out result) ? result : default(T);
         }
     }
 }
