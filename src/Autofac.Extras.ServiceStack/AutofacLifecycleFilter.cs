@@ -6,7 +6,7 @@ namespace Autofac.Extras.ServiceStack
 {
     public static class ServiceStackAutofac
     {
-        public static void UseAutofac(this ServiceStackHost appHost, IContainer container)
+        public static ServiceStackHost UseAutofac(this ServiceStackHost appHost, IContainer container)
         {
             appHost.Container.Adapter = new AutofacIocAdapter(container);
 
@@ -15,6 +15,8 @@ namespace Autofac.Extras.ServiceStack
 
             appHost.GlobalMessageRequestFilters.Add((req, resp, dto) => CreateScope(container));
             appHost.GlobalMessageRequestFilters.Add((req, resp, dto) => DisposeScope());
+            
+            return appHost;
         }
 
         private static void CreateScope(IContainer container)
