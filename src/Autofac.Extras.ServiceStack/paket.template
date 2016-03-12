@@ -1,0 +1,9 @@
+﻿type project
+authors
+	Alexey Zimarev
+owner alexey_zimarev
+description
+	Autofac container adapter for ServiceStack with per-request scope
+licenseUrl https://github.com/alexeyzimarev/Autofac.Extras.ServiceStack/blob/master/LICENSE
+projectUrl https://github.com/alexeyzimarev/Autofac.Extras.ServiceStack
+tags ServiceStack Autofac
