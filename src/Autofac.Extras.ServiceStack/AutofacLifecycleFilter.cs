@@ -27,8 +27,7 @@ namespace Autofac.Extras.ServiceStack
 
         private static void DisposeScope()
         {
-            var scope = HostContext.RequestContext.Items["AutofacScope"] as IDisposable;
-            scope?.Dispose();
+            var scope = HostContext.RequestContext.Items["AutofacScope"] as IDisposable;scope?.Dispose();
         }
     }
 }
