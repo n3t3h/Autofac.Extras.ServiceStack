@@ -4,6 +4,7 @@
 open Fake
 open Fake.Paket
 open Fake.FileUtils
+open System
 
 // Directories
 let rootDir = currentDirectory
@@ -36,6 +37,7 @@ Target "Push" (fun _ ->
             ApiKey = nugetApiKey
             PublishUrl = nugetPublishUrl
             WorkingDir = nugetDir
+            TimeOut = TimeSpan.FromSeconds(5.0)
         })
 )
 
