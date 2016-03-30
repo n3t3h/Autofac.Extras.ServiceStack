@@ -63,7 +63,6 @@ Target "Push" (fun _ ->
             ApiKey = nugetApiKey
             PublishUrl = nugetPublishUrl
             WorkingDir = nugetDir
-            TimeOut = TimeSpan.FromSeconds(5.0)
         })
 )
 
