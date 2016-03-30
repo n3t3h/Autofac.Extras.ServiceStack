@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Runtime.Remoting.Messaging;
 using Autofac.Core.Lifetime;
 using ServiceStack;
 
@@ -22,12 +22,13 @@ namespace Autofac.Extras.ServiceStack
         private static void CreateScope(IContainer container)
         {
             var scope = container.BeginLifetimeScope(MatchingScopeLifetimeTags.RequestLifetimeScopeTag);
-            HostContext.RequestContext.Items["AutofacScope"] = scope;
+            CallContext.LogicalSetData(Consts.AutofacScopeLogicalContextKey, scope);
         }
 
         private static void DisposeScope()
         {
-            var scope = HostContext.RequestContext.Items["AutofacScope"] as IDisposable;scope?.Dispose();
+            var scope = CallContext.LogicalGetData(Consts.AutofacScopeLogicalContextKey) as ILifetimeScope;
+            scope?.Dispose();
         }
     }
 }

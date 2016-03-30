@@ -1,4 +1,4 @@
-﻿using ServiceStack;
+﻿using System.Runtime.Remoting.Messaging;
 using ServiceStack.Configuration;
 
 namespace Autofac.Extras.ServiceStack
@@ -12,21 +12,18 @@ namespace Autofac.Extras.ServiceStack
 
         public IContainer Container { get; }
 
-        public T Resolve<T>()
-        {
-            return !HostContext.RequestContext.Items.Contains("AutofacScope")
-                ? Container.Resolve<T>()
-                : ((ILifetimeScope) HostContext.RequestContext.Items["AutofacScope"]).Resolve<T>();
-        }
+        public T Resolve<T>() 
+            => GetCurrentContext().Resolve<T>();
 
         public T TryResolve<T>()
         {
-            var context = HostContext.RequestContext.Items.Contains("AutofacScope")
-                ? (ILifetimeScope) HostContext.RequestContext.Items["AutofacScope"]
-                : Container;
+            var context = GetCurrentContext();
 
             T result;
             return context.TryResolve(out result) ? result : default(T);
         }
+
+        private ILifetimeScope GetCurrentContext()
+            => CallContext.LogicalGetData(Consts.AutofacScopeLogicalContextKey) as ILifetimeScope ?? Container;
     }
 }
