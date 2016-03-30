@@ -1,5 +1,10 @@
+framework: auto-detect
 source https://nuget.org/api/v2
 
 nuget Autofac
 nuget ServiceStack >= 4
+nuget ServiceStack.HttpClient
 nuget FAKE
+nuget xunit
+nuget FluentAssertions
+nuget xunit.runner.console

@@ -1,0 +1,6 @@
+xunit
+ServiceStack
+Autofac
+ServiceStack.Client
+ServiceStack.HttpClient
+FluentAssertions
