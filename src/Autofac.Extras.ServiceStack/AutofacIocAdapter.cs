@@ -19,8 +19,7 @@ namespace Autofac.Extras.ServiceStack
         {
             var context = GetCurrentContext();
 
-            T result;
-            return context.TryResolve(out result) ? result : default(T);
+            return context.TryResolve(out T result) ? result : default(T);
         }
 
         private ILifetimeScope GetCurrentContext()
